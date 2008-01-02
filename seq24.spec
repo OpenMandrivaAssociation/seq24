@@ -11,6 +11,7 @@ Source:		http://www.filter24.org/seq24/%{name}-%{version}.tar.bz2
 URL:		http://www.filter24.org/seq24/
 License:	GPL
 Group:		Sound
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 #BuildRequires:	libgtkmm-devel 
 BuildRequires:  libalsa-devel
 BuildRequires:  gtkmm2.4-devel
