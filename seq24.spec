@@ -1,13 +1,13 @@
 %define name	seq24
-%define version 0.8.6
-%define release %mkrel 2
+%define version 0.8.7
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Minimalistic, loop-based MIDI sequencer
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://www.filter24.org/seq24/%{name}-%{version}.tar.bz2
+Source:		http://www.filter24.org/seq24/%{name}-%{version}.tar.gz
 URL:		http://www.filter24.org/seq24/
 License:	GPL
 Group:		Sound
