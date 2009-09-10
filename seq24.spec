@@ -1,6 +1,6 @@
 %define name	seq24
 %define version 0.8.7
-%define release %mkrel 3
+%define release %mkrel 4
 
 Name: 	 	%{name}
 Summary: 	Minimalistic, loop-based MIDI sequencer
