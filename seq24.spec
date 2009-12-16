@@ -1,18 +1,18 @@
 %define name	seq24
-%define version 0.8.7
-%define release %mkrel 4
+%define version 0.9.0
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Minimalistic, loop-based MIDI sequencer
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://www.filter24.org/seq24/%{name}-%{version}.tar.gz
+Source:		http://launchpad.net/seq24/trunk/0.9.0/+download/%{name}-%{version}.tar.bz2
 URL:		http://www.filter24.org/seq24/
-License:	GPL
+License:	GPLv2+
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-#BuildRequires:	libgtkmm-devel 
+ 
 BuildRequires:  libalsa-devel
 BuildRequires:  gtkmm2.4-devel
 
@@ -30,19 +30,17 @@ found usable in performing.
 %setup -q
 
 %build
-%configure2_5x
-perl -pi -e "s#LASH_LIBS = -Wl,--rpath -Wl,/usr/lib#LASH_LIBS = #" src/Makefile
-
+%configure
 %make
 										
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall
 
 #menu
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Seq24
 Comment=Loop-based MIDI sequencer
@@ -51,13 +49,13 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=GNOME;GTK;AudioVideo;Audio;X-MandrivaLinux-Multimedia-Sound;
+Categories=GTK;AudioVideo;Audio;X-MandrivaLinux-Multimedia-Sound;
 EOF
 
 %find_lang %name
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post
@@ -72,6 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc README AUTHORS ChangeLog COPYING RTC SEQ24
-%{_bindir}/%name
-%{_bindir}/dump
+%{_bindir}/%{name}
+%{_mandir}/man1/%{name}*
 %{_datadir}/applications/mandriva-%{name}.desktop
