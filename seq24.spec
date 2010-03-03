@@ -1,20 +1,22 @@
-%define name	seq24
+%define name    seq24
 %define version 0.9.0
-%define release %mkrel 1
+%define release %mkrel 2
 
-Name: 	 	%{name}
-Summary: 	Minimalistic, loop-based MIDI sequencer
-Version: 	%{version}
-Release: 	%{release}
+Name:       %{name}
+Summary:    Minimalistic, loop-based MIDI sequencer
+Version:    %{version}
+Release:    %{release}
 
-Source:		http://launchpad.net/seq24/trunk/0.9.0/+download/%{name}-%{version}.tar.bz2
-URL:		http://www.filter24.org/seq24/
-License:	GPLv2+
-Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+Source:     http://launchpad.net/seq24/trunk/0.9.0/+download/%{name}-%{version}.tar.bz2
+Patch0:     seq24-0.9.0-rev70.patch
+URL:        http://www.filter24.org/seq24/
+License:    GPLv2+
+Group:      Sound
+BuildRoot:  %{_tmppath}/%{name}-buildroot
  
 BuildRequires:  libalsa-devel
 BuildRequires:  gtkmm2.4-devel
+BuildRequires:  jackit-devel
 
 %description
 Seq24 is a real-time midi sequencer. It was created to provide a very simple
@@ -28,11 +30,13 @@ found usable in performing.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+autoreconf -i
 %configure
 %make
-										
+                                        
 %install
 rm -rf %{buildroot}
 %makeinstall
@@ -61,7 +65,7 @@ rm -rf %{buildroot}
 %post
 %update_menus
 %endif
-		
+        
 %if %mdkversion < 200900
 %postun
 %clean_menus
