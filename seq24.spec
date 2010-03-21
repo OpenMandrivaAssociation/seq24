@@ -1,6 +1,6 @@
 %define name    seq24
 %define version 0.9.0
-%define release %mkrel 2
+%define release %mkrel 3
 
 Name:       %{name}
 Summary:    Minimalistic, loop-based MIDI sequencer
@@ -40,7 +40,8 @@ autoreconf -i
 %install
 rm -rf %{buildroot}
 %makeinstall
-
+mkdir -p %{buildroot}%{_datadir}/pixmaps
+cp src/%{name}.xpm %{buildroot}%{_datadir}/pixmaps
 #menu
 
 mkdir -p %{buildroot}%{_datadir}/applications
@@ -77,3 +78,4 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}*
 %{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/pixmaps/%{name}.xpm
