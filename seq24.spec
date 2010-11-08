@@ -1,15 +1,14 @@
 %define name    seq24
-%define version 0.9.0
-%define release %mkrel 3
+%define version 0.9.1
+%define release %mkrel 1
 
 Name:       %{name}
 Summary:    Minimalistic, loop-based MIDI sequencer
 Version:    %{version}
 Release:    %{release}
 
-Source:     http://launchpad.net/seq24/trunk/0.9.0/+download/%{name}-%{version}.tar.bz2
-Patch0:     seq24-0.9.0-rev70.patch
-URL:        http://www.filter24.org/seq24/
+Source:     http://edge.launchpad.net/seq24/trunk/0.9.1/+download/%{name}-%{version}.tar.bz2
+URL:        https://edge.launchpad.net/seq24/
 License:    GPLv2+
 Group:      Sound
 BuildRoot:  %{_tmppath}/%{name}-buildroot
@@ -30,10 +29,8 @@ found usable in performing.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-autoreconf -i
 %configure
 %make
                                         
