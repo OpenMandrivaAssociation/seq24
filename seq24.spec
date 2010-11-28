@@ -1,5 +1,5 @@
 %define name    seq24
-%define version 0.9.1
+%define version 0.9.2
 %define release %mkrel 1
 
 Name:       %{name}
@@ -58,16 +58,6 @@ EOF
 
 %clean
 rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-        
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
 
 %files -f %{name}.lang
 %defattr(-,root,root)
