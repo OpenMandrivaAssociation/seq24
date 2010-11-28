@@ -38,7 +38,7 @@ found usable in performing.
 rm -rf %{buildroot}
 %makeinstall
 mkdir -p %{buildroot}%{_datadir}/pixmaps
-cp src/%{name}.xpm %{buildroot}%{_datadir}/pixmaps
+cp src/pixmaps/%{name}.xpm %{buildroot}%{_datadir}/pixmaps
 #menu
 
 mkdir -p %{buildroot}%{_datadir}/applications
