@@ -1,7 +1,7 @@
 Name:       seq24
 Summary:    Minimalistic, loop-based MIDI sequencer
 Version:    0.9.2
-Release:    1
+Release:    2
 
 Source:     http://edge.launchpad.net/%{name}/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
 URL:        https://edge.launchpad.net/%{name}/
