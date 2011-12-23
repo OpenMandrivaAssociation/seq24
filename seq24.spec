@@ -1,9 +1,10 @@
 Name:       seq24
 Summary:    Minimalistic, loop-based MIDI sequencer
 Version:    0.9.2
-Release:    2
+Release:    3
 
 Source:     http://edge.launchpad.net/%{name}/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
+Patch0:     seq24-fix-jacksession.patch
 URL:        https://edge.launchpad.net/%{name}/
 License:    GPLv2+
 Group:      Sound
@@ -25,6 +26,7 @@ found usable in performing.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure
