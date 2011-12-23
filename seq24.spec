@@ -1,18 +1,14 @@
-%define name    seq24
-%define version 0.9.2
-%define release %mkrel 1
-
-Name:       %{name}
+Name:       seq24
 Summary:    Minimalistic, loop-based MIDI sequencer
-Version:    %{version}
-Release:    %{release}
+Version:    0.9.2
+Release:    1
 
-Source:     http://edge.launchpad.net/seq24/trunk/0.9.1/+download/%{name}-%{version}.tar.bz2
-URL:        https://edge.launchpad.net/seq24/
+Source:     http://edge.launchpad.net/%{name}/trunk/%{version}/+download/%{name}-%{version}.tar.bz2
+URL:        https://edge.launchpad.net/%{name}/
 License:    GPLv2+
 Group:      Sound
 BuildRoot:  %{_tmppath}/%{name}-buildroot
- 
+
 BuildRequires:  libalsa-devel
 BuildRequires:  gtkmm2.4-devel
 BuildRequires:  jackit-devel
@@ -33,7 +29,7 @@ found usable in performing.
 %build
 %configure
 %make
-                                        
+
 %install
 rm -rf %{buildroot}
 %makeinstall
@@ -54,12 +50,10 @@ StartupNotify=true
 Categories=GTK;AudioVideo;Audio;X-MandrivaLinux-Multimedia-Sound;
 EOF
 
-%find_lang %name
-
 %clean
 rm -rf %{buildroot}
 
-%files -f %{name}.lang
+%files
 %defattr(-,root,root)
 %doc README AUTHORS ChangeLog COPYING RTC SEQ24
 %{_bindir}/%{name}
