@@ -10,6 +10,11 @@ License:    GPLv2+
 Group:      Sound
 BuildRoot:  %{_tmppath}/%{name}-buildroot
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  libalsa-devel
 BuildRequires:  gtkmm2.4-devel
 BuildRequires:  jackit-devel
